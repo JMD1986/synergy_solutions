@@ -3,15 +3,13 @@ class CoursesController < ApplicationController
 
   # GET /courses
   # GET /courses.json
-  def index
-    @courses = Course.all def index
+ def index
     per_page = 20
 
     offset   = (params.fetch(:page, 1).to_i * per_page) - per_page
 
     @courses = Course.limit(params.fetch(:limit, per_page))
                      .offset(offset)
-  end
   end
 
   # GET /courses/1
