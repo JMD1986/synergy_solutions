@@ -18,7 +18,7 @@
       <tr>
         <td><%= employee.name %></td>
         <td><%= employee.job_title %></td>
-        <td><%= employee.company %></td>
+        <td><%= employee.company.name %></td>
         <td><%= employee.location %></td>
         <td><%= link_to 'Show', employee %></td>
         <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
@@ -29,5 +29,8 @@
 </table>
 
 <br>
-
+<% if params[:page].to_i > 1 %>
+  <%= link_to "Prev Page", courses_path({ page: params[:page].to_i - 1 }) %>
+<% end %>
+<%= link_to "Next Page",   courses_path({ page: params.fetch(:page, 1).to_i + 1 }) %>
 <%= link_to 'New Employee', new_employee_path %>
