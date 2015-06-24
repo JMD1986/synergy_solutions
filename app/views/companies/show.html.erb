@@ -5,5 +5,26 @@
   <%= @company.name %>
 </p>
 
+<p>
+  <strong>Courses:</strong>
+  <% @company.courses.each do |courses| %>
+  <p><%= courses.title %></p>
+  <% end %>
+</p>
+<p>
+  <strong>Employees:</strong>
+  <% @company.employees.each do |employee| %>
+  <p><%= employee.name %></p>
+  <% end %>
+</p>
+
+<p>
+  <strong>Locations:</strong>
+  <% @company.locations.each do |location| %>
+  <p><%= location.name %>
+  <% end %>
+</p>
+
+
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>

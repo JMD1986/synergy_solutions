@@ -15,5 +15,13 @@
   <%= @course.location.name %>
 </p>
 
+<p><strong>Employees:</strong>
+  <% @course.employees.each do |employees| %>
+    <% employees.name %>
+  <% end %>
+</p>
+
+
+
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
