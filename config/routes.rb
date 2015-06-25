@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :locations
   resources :companies
 
+
 #   employees GET    /employees(.:format)          employees#index
 #               POST   /employees(.:format)          employees#create
 #  new_employee GET    /employees/new(.:format)      employees#new
