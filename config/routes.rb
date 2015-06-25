@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :courses
   resources :locations
   resources :companies
-
+    root 'courses#index'
 #   employees GET    /employees(.:format)          employees#index
 #               POST   /employees(.:format)          employees#create
 #  new_employee GET    /employees/new(.:format)      employees#new
