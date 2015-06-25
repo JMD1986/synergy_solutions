@@ -9,14 +9,13 @@
 10.times do
   company = Company.create(name: Faker::Company.name)
   5.times do
-    10.times do
-      company.employees.create(name: Faker::Name.name,
-                              job_title: Faker::Name.title)
-  end
-    location = company.locations.create(name: Faker::Address.city)
+      location = company.locations.create(name: Faker::Address.city)
     3.times do
-      location.courses.create(title: Faker::Company.catch_phrase,
-                        description: Faker::Lorem.paragraph)
+      course = location.courses.create(title: Faker::Company.catch_phrase, description: Faker::Lorem.sentence)
+      4.times do
+        person = location.employees.create(name: Faker::Name.name, job_title: Faker::Name.title, company_id: company.id, location_id: location.id)
+        EmployeeCourse.create(employee_id: person.id, course_id: course.id)
+      end
     end
   end
 end

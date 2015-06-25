@@ -7,7 +7,18 @@
 
 <p>
   <strong>Company:</strong>
-  <%= @location.company %>
+  <%= @location.company.name %>
+</p>
+
+<p><strong>Courses</strong>
+  <% @location.courses.each do |course| %>
+  <p><%= course.title %></p>
+  <% end %>
+</p>
+<p><strong>Employees</strong>
+  <% @location.employees.each do |employee| %>
+  <p><%= employee.name %></p>
+<% end %>
 </p>
 
 <%= link_to 'Edit', edit_location_path(@location) %> |

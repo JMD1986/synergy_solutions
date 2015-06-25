@@ -12,13 +12,20 @@
 
 <p>
   <strong>Company:</strong>
-  <%= @employee.company %>
+  <%= @employee.company.name %>
 </p>
 
 <p>
   <strong>Location:</strong>
-  <%= @employee.location %>
+  <%= @employee.location.name %>
 </p>
+<p>
+  <strong>Courses</strong>
+  <% @employee.courses.each do |course| %>
+  <%= course.title %>
+  <% end %>
+</p>
+
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>
